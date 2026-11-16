@@ -1,0 +1,10 @@
+-A KUBE-SERVICES -d 10.96.197.250/32 -p tcp -m comment --comment "llm/llm-sim:http cluster IP" -m tcp --dport 80 -j KUBE-SVC-UNNECOXC2PHHDDGC
+-A KUBE-SERVICES -d 10.96.21.128/32 -p tcp -m comment --comment "llm/llm-sim-affinity:http cluster IP" -m tcp --dport 80 -j KUBE-SVC-T3ZSQ2I5ST6DK2XE
+-A KUBE-SVC-T3ZSQ2I5ST6DK2XE ! -s 10.244.0.0/16 -d 10.96.21.128/32 -p tcp -m comment --comment "llm/llm-sim-affinity:http cluster IP" -m tcp --dport 80 -j KUBE-MARK-MASQ
+-A KUBE-SVC-T3ZSQ2I5ST6DK2XE -m comment --comment "llm/llm-sim-affinity:http -> 10.244.0.46:8000" -m recent --rcheck --seconds 10800 --reap --name KUBE-SEP-43ICQ2APXOMC6NN4 --mask 255.255.255.255 --rsource -j KUBE-SEP-43ICQ2APXOMC6NN4
+-A KUBE-SVC-T3ZSQ2I5ST6DK2XE -m comment --comment "llm/llm-sim-affinity:http -> 10.244.0.47:8000" -m recent --rcheck --seconds 10800 --reap --name KUBE-SEP-CDIJFUWV4LQ3I6Z5 --mask 255.255.255.255 --rsource -j KUBE-SEP-CDIJFUWV4LQ3I6Z5
+-A KUBE-SVC-T3ZSQ2I5ST6DK2XE -m comment --comment "llm/llm-sim-affinity:http -> 10.244.0.46:8000" -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-43ICQ2APXOMC6NN4
+-A KUBE-SVC-T3ZSQ2I5ST6DK2XE -m comment --comment "llm/llm-sim-affinity:http -> 10.244.0.47:8000" -j KUBE-SEP-CDIJFUWV4LQ3I6Z5
+-A KUBE-SVC-UNNECOXC2PHHDDGC ! -s 10.244.0.0/16 -d 10.96.197.250/32 -p tcp -m comment --comment "llm/llm-sim:http cluster IP" -m tcp --dport 80 -j KUBE-MARK-MASQ
+-A KUBE-SVC-UNNECOXC2PHHDDGC -m comment --comment "llm/llm-sim:http -> 10.244.0.46:8000" -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-Q6FNAPWA35ZHU55D
+-A KUBE-SVC-UNNECOXC2PHHDDGC -m comment --comment "llm/llm-sim:http -> 10.244.0.47:8000" -j KUBE-SEP-4YPJK3IJUCSUTENZ

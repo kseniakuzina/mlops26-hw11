@@ -1,0 +1,12 @@
+# Опыт A: заметный прогрев 20 с, ёмкость с запасом под 4 запроса/с коротких ответов + длинные потоки.
+backend:
+  workMode: sleep
+  warmupSeconds: 20
+  maxConcurrency: 8
+  maxQueue: 32
+  prefillMsPerKchar: 20
+  defaultMaxChunks: 16
+termination:
+  gracePeriodSeconds: 60      # длинный поток 25 с + preStop 5 с + запас
+  preStopSleepSeconds: 5
+  gracefulShutdownSeconds: 45

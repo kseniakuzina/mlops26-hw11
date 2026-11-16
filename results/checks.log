@@ -1,0 +1,7 @@
+20:41:20 helm upgrade C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11\experiments\values-exp-a.yaml probes.mode=http model.version=A model.sha256=2c17c26d29def96e518f0320a8045111d49c562248d376f2899706159a69abc0
+20:41:59 red-probes-http exit 1 ============================== 1 failed in 5.48s ==============================
+20:42:00 helm upgrade C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11\experiments\values-exp-a.yaml probes.mode=warm model.version=A model.sha256=2c17c26d29def96e518f0320a8045111d49c562248d376f2899706159a69abc0
+20:43:13 green-probes-warm exit 0 ============================= 1 passed in 25.91s ==============================
+20:43:14 helm upgrade C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11\experiments\values-exp-a.yaml probes.mode=warm model.version=B model.sha256=17bf9f2e1d96dd8d8d221b5622bfd4ed626cb9e04dcafb87a968b08d2eb5540b
+20:46:09 all exit 0 ======================== 7 passed in 81.96s (0:01:21) =========================
+20:46:09 red (ожидается 1): 1 green (ожидается 0): 0 all: 0

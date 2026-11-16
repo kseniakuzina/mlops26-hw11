@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+results/
+charts/
+deploy/
+monitoring/
+experiments/
+analysis/
+tests/
+*.html
+*.md

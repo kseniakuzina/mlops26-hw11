@@ -1,0 +1,42 @@
+global
+  log stdout format raw local0 info
+defaults
+  mode http
+  log global
+  timeout connect 3s
+  timeout client 130s
+  timeout server 130s
+  timeout http-keep-alive 5s
+  # трасса: время, клиент, выбранный сервер, статус, полное время, Request ID и Session ID
+  log-format "%t client=%ci server=%s status=%ST total_ms=%Ta hdrs=%hr"
+resolvers k8s
+  parse-resolv-conf
+  resolve_retries 3
+  timeout resolve 1s
+  timeout retry 1s
+  hold valid 2s
+  hold other 2s
+  hold refused 2s
+  hold nx 2s
+  hold timeout 2s
+  hold obsolete 2s
+frontend fe
+  bind :8080
+  http-request capture req.hdr(X-Request-ID) len 40
+  http-request capture req.hdr(X-Session-ID) len 32
+  default_backend sim
+frontend stats
+  bind :8405
+  http-request use-service prometheus-exporter if { path /metrics }
+backend sim
+  # Готовая политика: consistent hashing по сессии с ограничением загрузки (bounded loads).
+  # Диалог остаётся на «своей» реплике (локальность префиксного кеша), пока её загрузка
+  # не превышает 125 % средней; иначе запрос уходит на следующую по кольцу.
+  balance hdr(X-Session-ID)
+  hash-type consistent
+  hash-balance-factor 125
+  option httpchk GET /readyz
+  http-check expect status 200
+  default-server inter 1s fall 1 rise 1 check resolvers k8s init-addr none
+  server-template sim 4 llm-sim-headless.llm.svc.cluster.local:8000
+  http-response set-header X-Routed-To %[srv_name]

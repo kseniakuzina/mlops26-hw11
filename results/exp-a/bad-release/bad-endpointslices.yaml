@@ -1,0 +1,73 @@
+apiVersion: v1
+items:
+- addressType: IPv4
+  apiVersion: discovery.k8s.io/v1
+  endpoints:
+  - addresses:
+    - 10.244.0.22
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hw11-control-plane
+    targetRef:
+      kind: Pod
+      name: llm-sim-c6569c947-mg44z
+      namespace: llm
+      uid: e5f0f0d2-1b4f-456a-b025-71e7a69522b1
+  - addresses:
+    - 10.244.0.23
+    conditions:
+      ready: true
+      serving: true
+      terminating: false
+    nodeName: hw11-control-plane
+    targetRef:
+      kind: Pod
+      name: llm-sim-c6569c947-c9j54
+      namespace: llm
+      uid: 31625b79-d4dc-4acb-bd5f-6563954e9110
+  - addresses:
+    - 10.244.0.24
+    conditions:
+      ready: false
+      serving: false
+      terminating: false
+    nodeName: hw11-control-plane
+    targetRef:
+      kind: Pod
+      name: llm-sim-7dd67cbf74-jw5vm
+      namespace: llm
+      uid: f9a68d92-343c-42d4-9d68-cb73cc5ce00e
+  kind: EndpointSlice
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2026-11-16T19:24:47Z"
+    creationTimestamp: "2026-11-14T13:58:23Z"
+    generateName: llm-sim-
+    generation: 443
+    labels:
+      app.kubernetes.io/instance: llm
+      app.kubernetes.io/managed-by: Helm
+      app.kubernetes.io/name: llm-sim
+      app.kubernetes.io/version: 0.1.0
+      endpointslice.kubernetes.io/managed-by: endpointslice-controller.k8s.io
+      kubernetes.io/service-name: llm-sim
+    name: llm-sim-gkwlz
+    namespace: llm
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Service
+      name: llm-sim
+      uid: 26cde9f9-70cd-49ed-a744-a147ace200df
+    resourceVersion: "35723"
+    uid: 87280f7c-5c96-4209-ad69-ca1909e7fa45
+  ports:
+  - name: http
+    port: 8000
+    protocol: TCP
+kind: List
+metadata:
+  resourceVersion: ""

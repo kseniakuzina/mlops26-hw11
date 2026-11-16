@@ -1,0 +1,13 @@
+# 2026-11-14T20:48:08  pytest -v -s -p no:cacheprovider tests/test_k8s_warmup.py
+# exit code 0
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.0.2, pluggy-1.7.0 -- C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11\.venv\Scripts\python.exe
+rootdir: C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11
+plugins: anyio-4.16.0
+collecting ... collected 1 item
+
+tests/test_k8s_warmup.py::test_replacement_pod_gets_no_traffic_while_warming new=llm-sim-5876cfcdb8-wl4kq warm_at=1794678512.6 ready_at=1794678512 cold=0 early_endpoint=0 requests_total=54 served_by_new=1
+PASSED
+
+============================= 1 passed in 26.00s ==============================
+

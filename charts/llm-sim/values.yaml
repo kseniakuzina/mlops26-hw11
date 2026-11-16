@@ -1,0 +1,80 @@
+# Все параметры опытов. Сравниваемые прогоны отличаются только явно переопределёнными значениями
+# (см. experiments/values-*.yaml).
+
+image:
+  repository: llm-sim
+  tag: "0.1.0"            # неизменяемый тег, образ загружается в kind через `kind load docker-image`
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+# Версия артефакта и его ожидаемый SHA-256. Источник — каталог /models в образе (models/SHA256SUMS).
+# При несовпадении хеша Pod не становится готовым.
+model:
+  version: A
+  sha256: 2c17c26d29def96e518f0320a8045111d49c562248d376f2899706159a69abc0
+  # справочно: B = 17bf9f2e1d96dd8d8d221b5622bfd4ed626cb9e04dcafb87a968b08d2eb5540b
+
+backend:
+  mode: simulated
+  workMode: sleep          # sleep — детерминированная очередь (опыты A, B); cpu — занятый цикл (опыт C)
+  warmupSeconds: 20
+  maxConcurrency: 2        # одновременно обрабатываемых запросов на Pod
+  maxQueue: 16             # сверх этого — 429 queue_full
+  chunkIntervalMs: 50
+  cpuMsPerChunk: 0
+  prefillMsPerKchar: 100   # стоимость cache miss: 100 мс на 1000 несовпавших символов
+  cacheHitMs: 20           # фиксированная стоимость cache hit
+  prefixCacheEntries: 128  # размер имитации префиксного кеша (LRU), на Pod
+  defaultMaxChunks: 16
+  keepAliveSeconds: 5
+
+faultInjection: true       # /admin/crash и /admin/reset-cache — только для стенда
+
+probes:
+  # warm — исправлено: startup/readiness ждут конца прогрева.
+  # http — исходный дефект: готов, как только поднялся HTTP-процесс.
+  mode: warm
+  periodSeconds: 2
+  startupMarginSeconds: 30   # запас сверх warmupSeconds до перезапуска при зависшем старте
+
+strategy:
+  maxSurge: 1
+  maxUnavailable: 0
+
+termination:
+  gracePeriodSeconds: 60     # > самого длинного допустимого потока + preStop
+  preStopSleepSeconds: 5     # время на исключение из EndpointSlice до SIGTERM
+  gracefulShutdownSeconds: 45
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 96Mi
+  limits:
+    cpu: "1"
+    memory: 256Mi
+
+services:
+  port: 80
+  affinity:
+    enabled: true
+    timeoutSeconds: 10800
+
+router:
+  enabled: true
+  image: haproxy:3.2-alpine@sha256:1c3568e520453cc8ba98c39501febcf450429c80e6cc27ecad779961d76e597c
+  balanceFactor: 125       # consistent hashing with bounded loads: не больше 125 % средней загрузки
+  serverSlots: 4
+
+hpa:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 3
+  cpuUtilization: 50
+  scaleUpStabilizationSeconds: 0
+  scaleDownStabilizationSeconds: 60
+
+loadgen:
+  enabled: true
+  replicas: 4

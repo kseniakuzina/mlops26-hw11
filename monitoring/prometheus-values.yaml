@@ -1,0 +1,66 @@
+# prometheus-community/prometheus 29.47.0 (Prometheus v3.16.0). Только то, что нужно стенду.
+alertmanager:
+  enabled: false          # переходы pending/firing видны в Prometheus (/alerts, ALERTS); доставка не нужна
+prometheus-pushgateway:
+  enabled: false
+prometheus-node-exporter:
+  enabled: false          # CPU/RAM контейнеров берём из cAdvisor (job kubernetes-nodes-cadvisor)
+kube-state-metrics:
+  enabled: true           # kube_deployment_status_replicas_ready, kube_pod_status_ready
+
+configmapReload:
+  prometheus:
+    enabled: true
+
+server:
+  global:
+    scrape_interval: 5s
+    scrape_timeout: 4s
+    evaluation_interval: 5s
+  # Ограничения хранения: стенд живёт часы, а не недели.
+  retention: 48h
+  retentionSize: 768MB
+  persistentVolume:
+    enabled: true
+    size: 1Gi
+  resources:
+    requests: {cpu: 100m, memory: 256Mi}
+    limits: {cpu: "1", memory: 768Mi}
+
+# Сбор с каждого Pod сервиса — через kubernetes_sd (job kubernetes-pods из чарта) по аннотациям
+# prometheus.io/scrape|port|path в шаблоне Pod. Метка pod добавляется relabel-правилом чарта.
+
+serverFiles:
+  alerting_rules.yml:
+    groups:
+      - name: llm-sim
+        rules:
+          # Задержка: p95 TTFC по суммарным bucket всех Pod за 1 мин выше 2 с.
+          # Минимальный объём: не меньше 30 первых частей за минуту, иначе p95 по 3 точкам — шум.
+          - alert: LLMHighTTFC
+            expr: |
+              histogram_quantile(0.95, sum by (le) (rate(llm_ttfc_seconds_bucket{namespace="llm"}[1m]))) > 2
+              and on() sum(increase(llm_ttfc_seconds_count{namespace="llm"}[1m])) >= 30
+            for: 1m
+            labels: {severity: warning}
+            annotations:
+              summary: "p95 TTFC > 2 с при >= 30 ответах/мин в течение 1 мин"
+          # Отказы: доля исходов, отличных от ok (429, 503 прогрева, обрывы, ошибки), выше 5 %.
+          # Минимальный объём: не меньше 30 завершённых запросов за минуту.
+          - alert: LLMErrorRatio
+            expr: |
+              sum(increase(llm_requests_total{namespace="llm", outcome!="ok"}[1m]))
+                / sum(increase(llm_requests_total{namespace="llm"}[1m])) > 0.05
+              and on() sum(increase(llm_requests_total{namespace="llm"}[1m])) >= 30
+            for: 1m
+            labels: {severity: warning}
+            annotations:
+              summary: "доля отказов > 5 % при >= 30 запросах/мин в течение 1 мин"
+  recording_rules.yml:
+    groups:
+      - name: llm-sim-recording
+        rules:
+          - record: llm:ttfc_seconds:p95_1m
+            expr: histogram_quantile(0.95, sum by (le) (rate(llm_ttfc_seconds_bucket{namespace="llm"}[1m])))
+          - record: llm:ttfc_seconds:p95_by_pod_1m
+            expr: histogram_quantile(0.95, sum by (le, pod) (rate(llm_ttfc_seconds_bucket{namespace="llm"}[1m])))

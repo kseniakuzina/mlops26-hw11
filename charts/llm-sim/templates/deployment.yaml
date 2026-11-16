@@ -1,0 +1,86 @@
+{{- $p := .Values.probes }}
+{{- $warm := eq $p.mode "warm" }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-sim
+  labels: {{- include "llm-sim.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.hpa.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  revisionHistoryLimit: 5
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: {{ .Values.strategy.maxSurge }}
+      maxUnavailable: {{ .Values.strategy.maxUnavailable }}
+  selector:
+    matchLabels: {{- include "llm-sim.selector" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "llm-sim.selector" . | nindent 8 }}
+        model-version: {{ .Values.model.version | quote }}
+        probes-mode: {{ $p.mode | quote }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8000"
+        prometheus.io/path: /metrics
+    spec:
+      terminationGracePeriodSeconds: {{ .Values.termination.gracePeriodSeconds }}
+      containers:
+        - name: api
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - {name: http, containerPort: 8000}
+          envFrom:
+            - configMapRef: {name: llm-sim-config}
+          env:
+            - name: POD_NAME
+              valueFrom: {fieldRef: {fieldPath: metadata.name}}
+            - name: POD_IP
+              valueFrom: {fieldRef: {fieldPath: status.podIP}}
+          resources: {{- toYaml .Values.resources | nindent 12 }}
+          {{- if $warm }}
+          # Исправлено: startup ждёт загрузки и прогрева, readiness дополнительно снимается при SIGTERM.
+          startupProbe:
+            httpGet: {path: /startupz, port: http}
+            periodSeconds: {{ $p.periodSeconds }}
+            timeoutSeconds: 1
+            failureThreshold: {{ div (add (int .Values.backend.warmupSeconds) (int $p.startupMarginSeconds)) (int $p.periodSeconds) }}
+          readinessProbe:
+            httpGet: {path: /readyz, port: http}
+            periodSeconds: {{ $p.periodSeconds }}
+            timeoutSeconds: 1
+            failureThreshold: 1
+            successThreshold: 1
+          {{- else }}
+          # Исходный дефект: startup и readiness проверяют только, что HTTP-процесс отвечает.
+          startupProbe:
+            httpGet: {path: /livez, port: http}
+            periodSeconds: {{ $p.periodSeconds }}
+            timeoutSeconds: 1
+            failureThreshold: 15
+          readinessProbe:
+            httpGet: {path: /livez, port: http}
+            periodSeconds: {{ $p.periodSeconds }}
+            timeoutSeconds: 1
+            failureThreshold: 1
+          {{- end }}
+          # Liveness — только зависание процесса/event loop; прогрев и перегрузка её не роняют.
+          livenessProbe:
+            httpGet: {path: /livez, port: http}
+            periodSeconds: 10
+            timeoutSeconds: 3
+            failureThreshold: 3
+          {{- if gt (int .Values.termination.preStopSleepSeconds) 0 }}
+          lifecycle:
+            preStop:
+              sleep: {seconds: {{ .Values.termination.preStopSleepSeconds }}}
+          {{- end }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true

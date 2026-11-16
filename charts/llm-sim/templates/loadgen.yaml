@@ -1,0 +1,33 @@
+{{- if .Values.loadgen.enabled }}
+# Клиентские Pod: у каждого свой IP. Нагрузка запускается через `kubectl exec loadgen-N -- python /app/loadgen.py`.
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: loadgen
+  labels: {{- include "llm-sim.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.loadgen.replicas }}
+  serviceName: loadgen
+  podManagementPolicy: Parallel
+  selector:
+    matchLabels: {app: loadgen}
+  template:
+    metadata:
+      labels: {app: loadgen}
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: client
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["sleep", "infinity"]
+          workingDir: /app
+          env:
+            - name: POD_NAME
+              valueFrom: {fieldRef: {fieldPath: metadata.name}}
+            - name: POD_IP
+              valueFrom: {fieldRef: {fieldPath: status.podIP}}
+          resources:
+            requests: {cpu: 100m, memory: 64Mi}
+            limits: {cpu: "1", memory: 256Mi}
+{{- end }}

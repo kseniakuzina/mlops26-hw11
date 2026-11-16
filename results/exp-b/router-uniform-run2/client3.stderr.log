@@ -1,0 +1,1 @@
+loadgen: 78/282 requests for client=3 start_at=1794674499.061 target=http://llm-router.llm.svc.cluster.local keepalive=1

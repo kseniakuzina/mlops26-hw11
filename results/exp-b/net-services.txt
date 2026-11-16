@@ -1,0 +1,5 @@
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)    AGE     SELECTOR
+llm-router         ClusterIP   10.96.240.73    <none>        80/TCP     3h12m   app=llm-router
+llm-sim            ClusterIP   10.96.197.250   <none>        80/TCP     3h12m   app=llm-sim
+llm-sim-affinity   ClusterIP   10.96.21.128    <none>        80/TCP     3h12m   app=llm-sim
+llm-sim-headless   ClusterIP   None            <none>        8000/TCP   3h12m   app=llm-sim

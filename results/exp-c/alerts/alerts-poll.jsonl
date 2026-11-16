@@ -1,0 +1,121 @@
+{"t": 1794677471.36, "alerts": []}
+{"t": 1794677476.38, "alerts": []}
+{"t": 1794677481.4, "alerts": []}
+{"t": 1794677486.43, "alerts": []}
+{"t": 1794677491.45, "alerts": []}
+{"t": 1794677496.49, "alerts": []}
+{"t": 1794677501.52, "alerts": []}
+{"t": 1794677506.53, "alerts": []}
+{"t": 1794677511.56, "alerts": []}
+{"t": 1794677516.58, "alerts": []}
+{"t": 1794677521.61, "alerts": []}
+{"t": 1794677526.63, "alerts": []}
+{"t": 1794677531.65, "alerts": []}
+{"t": 1794677536.69, "alerts": []}
+{"t": 1794677541.72, "alerts": []}
+{"t": 1794677546.75, "alerts": []}
+{"t": 1794677551.78, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "4.1857349369423185e+00"}]}
+{"t": 1794677556.83, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "5.4374999999999964e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "9.22596106149647e-02"}]}
+{"t": 1794677561.86, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "6.791412089949743e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.2757158207455563e-01"}]}
+{"t": 1794677566.87, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.131945792851652e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "2.302285888052991e-01"}]}
+{"t": 1794677571.93, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.232142857142857e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "2.3390568477178594e-01"}]}
+{"t": 1794677576.97, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.272094675463198e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "2.2444526742070864e-01"}]}
+{"t": 1794677581.99, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.281080132763723e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "2.1541650072387675e-01"}]}
+{"t": 1794677587.02, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.284705620230575e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.838581918053837e-01"}]}
+{"t": 1794677592.04, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.28949872014178e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.6329602243888164e-01"}]}
+{"t": 1794677597.07, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.269552196405548e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.4447729845103333e-01"}]}
+{"t": 1794677602.09, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.247532620701364e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.3105305455403352e-01"}]}
+{"t": 1794677607.12, "alerts": [{"name": "LLMHighTTFC", "state": "pending", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.251182788984029e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.2401431241857161e-01"}]}
+{"t": 1794677612.14, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.239118820100401e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "1.1192543886356116e-01"}]}
+{"t": 1794677617.16, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.209146135458676e+00"}, {"name": "LLMErrorRatio", "state": "firing", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "8.75147894022275e-02"}]}
+{"t": 1794677622.18, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.159887723286113e+00"}, {"name": "LLMErrorRatio", "state": "firing", "activeAt": "2026-11-14T17:32:31.393602037Z", "value": "5.765607575401854e-02"}]}
+{"t": 1794677627.21, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.121921582119704e+00"}]}
+{"t": 1794677632.22, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.1035356256212685e+00"}]}
+{"t": 1794677637.23, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.073904398971548e+00"}]}
+{"t": 1794677642.24, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.05217222535177e+00"}]}
+{"t": 1794677647.28, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "6.999415234698337e+00"}]}
+{"t": 1794677652.3, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "6.9837709020787635e+00"}]}
+{"t": 1794677657.32, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "6.999994984262788e+00"}]}
+{"t": 1794677662.34, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "6.959387750985832e+00"}]}
+{"t": 1794677667.37, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "6.98414762423007e+00"}]}
+{"t": 1794677672.39, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.0788159240880715e+00"}]}
+{"t": 1794677677.41, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.13663892667857e+00"}]}
+{"t": 1794677682.43, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.154509645476956e+00"}]}
+{"t": 1794677687.45, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.179230441203902e+00"}]}
+{"t": 1794677692.47, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.215911200483813e+00"}]}
+{"t": 1794677697.48, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.24780928322132e+00"}]}
+{"t": 1794677702.51, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.268390915569532e+00"}]}
+{"t": 1794677707.53, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.289832047721003e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:06.393602037Z", "value": "5.260827768788612e-02"}]}
+{"t": 1794677712.55, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.309248358563677e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:06.393602037Z", "value": "5.4086560387877326e-02"}]}
+{"t": 1794677717.59, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.322674325459224e+00"}]}
+{"t": 1794677722.6, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.330483574088267e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "5.0793726892569654e-02"}]}
+{"t": 1794677727.61, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.329565440681459e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "6.1485214432989e-02"}]}
+{"t": 1794677732.64, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.334282419774871e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "7.30865343366429e-02"}]}
+{"t": 1794677737.67, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.347730841437432e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "8.789908493226099e-02"}]}
+{"t": 1794677742.69, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.368595997137177e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "8.505790947344309e-02"}]}
+{"t": 1794677747.71, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.376630262002422e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.0136728234822573e-01"}]}
+{"t": 1794677752.73, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.383189413514473e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.1486486724924971e-01"}]}
+{"t": 1794677757.74, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.408829636916286e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.131226485903313e-01"}]}
+{"t": 1794677762.76, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.419315992292871e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.1891279728199321e-01"}]}
+{"t": 1794677767.79, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.4239776606792365e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.2272792448535998e-01"}]}
+{"t": 1794677772.8, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.4426673228346445e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.2684031710079277e-01"}]}
+{"t": 1794677777.82, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.435567010309279e+00"}, {"name": "LLMErrorRatio", "state": "pending", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.2186788154897493e-01"}]}
+{"t": 1794677782.86, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.451679198154148e+00"}, {"name": "LLMErrorRatio", "state": "firing", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "1.0747575026090196e-01"}]}
+{"t": 1794677787.9, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.467919901558216e+00"}, {"name": "LLMErrorRatio", "state": "firing", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "9.026228269801441e-02"}]}
+{"t": 1794677792.92, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.466668974869483e+00"}, {"name": "LLMErrorRatio", "state": "firing", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "7.552139709096806e-02"}]}
+{"t": 1794677797.94, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.451869278678884e+00"}, {"name": "LLMErrorRatio", "state": "firing", "activeAt": "2026-11-14T17:35:21.393602037Z", "value": "7.902264382105603e-02"}]}
+{"t": 1794677802.97, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.4469327918814345e+00"}]}
+{"t": 1794677807.99, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.441786197341746e+00"}]}
+{"t": 1794677813.01, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.410487575898998e+00"}]}
+{"t": 1794677818.04, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.402487134926281e+00"}]}
+{"t": 1794677823.06, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.4122501368074065e+00"}]}
+{"t": 1794677828.1, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.359223300970875e+00"}]}
+{"t": 1794677833.13, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.403170860579101e+00"}]}
+{"t": 1794677838.15, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "7.314285562129132e+00"}]}
+{"t": 1794677843.2, "alerts": [{"name": "LLMHighTTFC", "state": "firing", "activeAt": "2026-11-14T17:32:26.393602037Z", "value": "2.80008545606593e+00"}]}
+{"t": 1794677848.21, "alerts": []}
+{"t": 1794677853.24, "alerts": []}
+{"t": 1794677858.26, "alerts": []}
+{"t": 1794677863.28, "alerts": []}
+{"t": 1794677868.3, "alerts": []}
+{"t": 1794677873.33, "alerts": []}
+{"t": 1794677878.35, "alerts": []}
+{"t": 1794677883.37, "alerts": []}
+{"t": 1794677888.4, "alerts": []}
+{"t": 1794677893.42, "alerts": []}
+{"t": 1794677898.45, "alerts": []}
+{"t": 1794677903.49, "alerts": []}
+{"t": 1794677908.52, "alerts": []}
+{"t": 1794677913.55, "alerts": []}
+{"t": 1794677918.58, "alerts": []}
+{"t": 1794677923.61, "alerts": []}
+{"t": 1794677928.64, "alerts": []}
+{"t": 1794677933.66, "alerts": []}
+{"t": 1794677938.7, "alerts": []}
+{"t": 1794677943.72, "alerts": []}
+{"t": 1794677948.76, "alerts": []}
+{"t": 1794677953.79, "alerts": []}
+{"t": 1794677958.81, "alerts": []}
+{"t": 1794677963.84, "alerts": []}
+{"t": 1794677968.88, "alerts": []}
+{"t": 1794677973.9, "alerts": []}
+{"t": 1794677978.93, "alerts": []}
+{"t": 1794677983.95, "alerts": []}
+{"t": 1794677988.98, "alerts": []}
+{"t": 1794677994.01, "alerts": []}
+{"t": 1794677999.04, "alerts": []}
+{"t": 1794678004.06, "alerts": []}
+{"t": 1794678009.08, "alerts": []}
+{"t": 1794678014.11, "alerts": []}
+{"t": 1794678019.14, "alerts": []}
+{"t": 1794678024.17, "alerts": []}
+{"t": 1794678029.19, "alerts": []}
+{"t": 1794678034.21, "alerts": []}
+{"t": 1794678039.24, "alerts": []}
+{"t": 1794678044.26, "alerts": []}
+{"t": 1794678049.29, "alerts": []}
+{"t": 1794678054.32, "alerts": []}
+{"t": 1794678059.35, "alerts": []}
+{"t": 1794678064.37, "alerts": []}
+{"t": 1794678069.4, "alerts": []}
+{"t": 1794678074.42, "alerts": []}

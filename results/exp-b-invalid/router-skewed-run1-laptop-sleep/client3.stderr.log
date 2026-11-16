@@ -1,0 +1,4 @@
+loadgen: 21/261 requests for client=3 start_at=1794667372.993 target=http://llm-router.llm.svc.cluster.local keepalive=1
+E1114 19:34:09.161466   11328 v2.go:168] "Copying stderr failed" err="next reader: read tcp 127.0.0.1:50964->127.0.0.1:60947: i/o timeout"
+E1114 19:34:09.165515   11328 v2.go:151] "Copying stdout failed" err="next reader: read tcp 127.0.0.1:50964->127.0.0.1:60947: i/o timeout"
+error: error reading from error stream: next reader: read tcp 127.0.0.1:50964->127.0.0.1:60947: i/o timeout

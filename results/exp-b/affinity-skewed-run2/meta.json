@@ -1,0 +1,23 @@
+{
+  "policy": "affinity",
+  "profile": "skewed",
+  "seed": 2,
+  "target": "http://llm-sim-affinity.llm.svc.cluster.local",
+  "rate": 2.0,
+  "warmup_s": 20,
+  "duration_s": 120,
+  "keepalive": 1,
+  "start_at": 1794674851.638725,
+  "end": 1794674994.0051608,
+  "server_pods": {
+    "llm-sim-8566f69f44-jp6t4": "10.244.0.73",
+    "llm-sim-8566f69f44-nhp8j": "10.244.0.74"
+  },
+  "client_pods": {
+    "loadgen-0": "10.244.0.13",
+    "loadgen-1": "10.244.0.15",
+    "loadgen-2": "10.244.0.14",
+    "loadgen-3": "10.244.0.16"
+  },
+  "initial_state": "новые Pod (rollout restart), пустой префиксный кеш, прогрев backend 5 с + 20 с нагрузки"
+}

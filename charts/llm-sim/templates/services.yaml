@@ -1,0 +1,38 @@
+# Обычный Service: kube-proxy (iptables) выбирает Pod случайно для каждого нового TCP-соединения.
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-sim
+  labels: {{- include "llm-sim.labels" . | nindent 4 }}
+spec:
+  selector: {{- include "llm-sim.selector" . | nindent 4 }}
+  ports:
+    - {name: http, port: {{ .Values.services.port }}, targetPort: http}
+{{- if .Values.services.affinity.enabled }}
+---
+# Тот же набор Pod, но с привязкой по IP клиента, который видит kube-proxy (IP клиентского Pod).
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-sim-affinity
+  labels: {{- include "llm-sim.labels" . | nindent 4 }}
+spec:
+  selector: {{- include "llm-sim.selector" . | nindent 4 }}
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP: {timeoutSeconds: {{ .Values.services.affinity.timeoutSeconds }}}
+  ports:
+    - {name: http, port: {{ .Values.services.port }}, targetPort: http}
+{{- end }}
+---
+# Headless: DNS отдаёт IP только готовых Pod — по нему маршрутизатор находит реплики.
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-sim-headless
+  labels: {{- include "llm-sim.labels" . | nindent 4 }}
+spec:
+  clusterIP: None
+  selector: {{- include "llm-sim.selector" . | nindent 4 }}
+  ports:
+    - {name: http, port: 8000, targetPort: http}

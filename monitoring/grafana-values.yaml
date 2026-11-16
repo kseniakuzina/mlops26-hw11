@@ -1,0 +1,31 @@
+# grafana/grafana 10.5.15 (Grafana 12.3.1). Локальный стенд: пароль не секрет, хранилище не нужно.
+adminUser: admin
+adminPassword: hw11-local
+persistence:
+  enabled: false
+resources:
+  requests: {cpu: 50m, memory: 128Mi}
+  limits: {cpu: 500m, memory: 256Mi}
+datasources:
+  datasources.yaml:
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        uid: prom
+        type: prometheus
+        url: http://prometheus-server.monitoring.svc.cluster.local
+        access: proxy
+        isDefault: true
+        jsonData: {timeInterval: 5s}
+dashboardProviders:
+  dashboardproviders.yaml:
+    apiVersion: 1
+    providers:
+      - name: hw11
+        orgId: 1
+        folder: HW11
+        type: file
+        disableDeletion: true
+        options: {path: /var/lib/grafana/dashboards/hw11}
+dashboardsConfigMaps:
+  hw11: grafana-dashboard-llm-sim

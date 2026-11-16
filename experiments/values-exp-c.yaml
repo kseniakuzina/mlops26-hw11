@@ -1,0 +1,29 @@
+# Опыт C: вычислительная нагрузка имитатора, чтобы HPA видел причину масштабирования.
+# CPU на запрос: 20 частей x 8 мс + prefill 30 мс на 1000 несовпавших символов (занятый цикл) ~ 0,25-0,3 с.
+# Слотов 8 на Pod: ограничивает CPU (limit 1 ядро), а не число слотов — причина масштабирования наблюдаема.
+backend:
+  workMode: cpu
+  warmupSeconds: 10
+  maxConcurrency: 8
+  maxQueue: 32
+  chunkIntervalMs: 50
+  cpuMsPerChunk: 8
+  prefillMsPerKchar: 30
+  cacheHitMs: 5
+  defaultMaxChunks: 20
+probes:
+  mode: warm
+resources:
+  requests:
+    cpu: 500m
+    memory: 96Mi
+  limits:
+    cpu: "1"
+    memory: 256Mi
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 3
+  cpuUtilization: 60
+  scaleUpStabilizationSeconds: 0
+  scaleDownStabilizationSeconds: 60

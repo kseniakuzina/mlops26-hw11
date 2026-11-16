@@ -1,0 +1,2 @@
+llm-sim-75fbd7c4cb-glftp requests={"cpu":"500m","memory":"96Mi"}
+llm-sim-75fbd7c4cb-k2jdj requests={"cpu":"500m","memory":"96Mi"}

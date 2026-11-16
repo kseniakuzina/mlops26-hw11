@@ -1,0 +1,23 @@
+{
+  "policy": "router",
+  "profile": "skewed",
+  "seed": 2,
+  "target": "http://llm-router.llm.svc.cluster.local",
+  "rate": 2.0,
+  "warmup_s": 20,
+  "duration_s": 120,
+  "keepalive": 1,
+  "start_at": 1794675028.509946,
+  "end": 1794675169.9599092,
+  "server_pods": {
+    "llm-sim-7694786dc5-ctnzg": "10.244.0.77",
+    "llm-sim-7694786dc5-xz8v7": "10.244.0.76"
+  },
+  "client_pods": {
+    "loadgen-0": "10.244.0.13",
+    "loadgen-1": "10.244.0.15",
+    "loadgen-2": "10.244.0.14",
+    "loadgen-3": "10.244.0.16"
+  },
+  "initial_state": "новые Pod (rollout restart), пустой префиксный кеш, прогрев backend 5 с + 20 с нагрузки"
+}

@@ -1,0 +1,2 @@
+llm-sim-84479c845c-2lkhr requests={"cpu":"500m","memory":"96Mi"}
+llm-sim-84479c845c-z4b7b requests={"cpu":"500m","memory":"96Mi"}

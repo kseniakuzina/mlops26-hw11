@@ -1,0 +1,7 @@
+NAME                          CPU(cores)   MEMORY(bytes)   
+llm-router-7dfd4c94fd-4m9ln   8m           80Mi            
+llm-sim-675ffb6766-jj55r      18m          37Mi            
+loadgen-0                     22m          0Mi             
+loadgen-1                     7m           0Mi             
+loadgen-2                     5m           0Mi             
+loadgen-3                     2m           25Mi            

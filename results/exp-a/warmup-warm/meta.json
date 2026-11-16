@@ -1,0 +1,8 @@
+{
+  "step": "warmup",
+  "probes": "warm",
+  "start_at": 1794856481.590243,
+  "t_restart": 1794856497.1521802,
+  "values": "values-exp-a.yaml",
+  "target": "http://llm-sim.llm.svc.cluster.local"
+}

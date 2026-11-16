@@ -1,0 +1,4 @@
+NAME                       READY   STATUS    RESTARTS     AGE   IP            NODE                 NOMINATED NODE   READINESS GATES
+llm-sim-7dd67cbf74-jw5vm   0/1     Running   1 (4s ago)   60s   10.244.0.24   hw11-control-plane   <none>           <none>
+llm-sim-c6569c947-c9j54    1/1     Running   0            10m   10.244.0.23   hw11-control-plane   <none>           <none>
+llm-sim-c6569c947-mg44z    1/1     Running   0            10m   10.244.0.22   hw11-control-plane   <none>           <none>

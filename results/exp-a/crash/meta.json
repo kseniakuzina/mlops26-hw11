@@ -1,0 +1,7 @@
+{
+  "step": "crash",
+  "victim": "llm-sim-5fc7d9cd87-7dv8w",
+  "t_crash": 1794665873.1731987,
+  "start_at": 1794665842.6066043,
+  "method": "POST /admin/crash -> os._exit(137) внутри процесса"
+}

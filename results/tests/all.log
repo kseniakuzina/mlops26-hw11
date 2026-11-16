@@ -1,0 +1,22 @@
+# 2026-11-14T20:50:08  pytest -v -s -p no:cacheprovider tests
+# exit code 0
+============================= test session starts =============================
+platform win32 -- Python 3.12.14, pytest-9.0.2, pluggy-1.7.0 -- C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11\.venv\Scripts\python.exe
+rootdir: C:\Users\Mi\Ksenia\учеба\mlops\mlops26-hw11
+plugins: anyio-4.16.0
+collecting ... collected 7 items
+
+tests/test_accounting.py::test_outcomes_are_classified PASSED
+tests/test_accounting.py::test_crash_mid_stream_is_truncated PASSED
+tests/test_accounting.py::test_retries_are_separate_attempts PASSED
+tests/test_isolation.py::test_two_dialogs_do_not_leak {'ALPHA-1111': ['llm-sim-5876cfcdb8-hs5w8', 'llm-sim-5876cfcdb8-srvsg', 'llm-sim-5876cfcdb8-hs5w8'], 'BRAVO-2222': ['llm-sim-5876cfcdb8-srvsg', 'llm-sim-5876cfcdb8-hs5w8', 'llm-sim-5876cfcdb8-srvsg']}
+PASSED
+tests/test_k8s_recovery.py::test_dialog_continues_after_pod_replacement first pod=llm-sim-5876cfcdb8-hs5w8 version=A; after: [('llm-sim-5876cfcdb8-4mqwd', 'A'), ('llm-sim-5876cfcdb8-srvsg', 'A'), ('llm-sim-5876cfcdb8-srvsg', 'A'), ('llm-sim-5876cfcdb8-srvsg', 'A')]
+PASSED
+tests/test_k8s_version.py::test_served_version_matches_release revision=25 (Rollback to 23) expected=A served=[('llm-sim-5876cfcdb8-4mqwd', 'A'), ('llm-sim-5876cfcdb8-srvsg', 'A')]
+PASSED
+tests/test_k8s_warmup.py::test_replacement_pod_gets_no_traffic_while_warming new=llm-sim-5876cfcdb8-ltkjg warm_at=1794678685.2 ready_at=1794678685 cold=0 early_endpoint=0 requests_total=54 served_by_new=3
+PASSED
+
+======================== 7 passed in 78.61s (0:01:18) =========================
+

@@ -1,0 +1,5 @@
+# Прямые зависимости образа; полный закреплённый набор — requirements.lock (pip freeze из образа).
+fastapi==0.150.0
+uvicorn==0.54.0
+prometheus-client==0.26.0
+httpx==0.28.1

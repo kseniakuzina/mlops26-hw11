@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "model_id": "sim-llm",
+  "version": "A",
+  "backend_mode": "simulated",
+  "lineage": "ДЗ 8+9+10: manifest-baseline (Qwen3-0.6B + LoRA) заменён имитатором для CPU-стенда",
+  "system_prompt": "Ты помощник службы поддержки. Отвечай кратко.",
+  "answer_style": "baseline",
+  "vocab": ["принято", "проверяю", "данные", "ответ", "готов", "шаг", "далее", "итог", "запрос", "сервис", "версия", "очередь"]
+}

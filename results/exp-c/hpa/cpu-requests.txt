@@ -1,0 +1,3 @@
+llm-sim-675ffb6766-jj55r requests={"cpu":"250m","memory":"96Mi"}
+llm-sim-84479c845c-2lkhr requests={"cpu":"500m","memory":"96Mi"}
+llm-sim-84479c845c-c2gp9 requests={"cpu":"500m","memory":"96Mi"}

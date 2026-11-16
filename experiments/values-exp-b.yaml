@@ -1,0 +1,19 @@
+# Опыт B: параметры имитации префиксного кеша и ёмкости (сохраняются в отчёте).
+# Стоимость miss: 100 мс на 1000 символов, которых нет в кеше (документ диалога 4-12 тыс. символов -> 0,4-1,2 с).
+# Стоимость hit: 20 мс + пересчёт только новых сообщений (~330 символов -> ~33 мс).
+# Ёмкость: 2 одновременно обрабатываемых запроса на Pod, очередь до 16, затем 429.
+backend:
+  workMode: sleep
+  warmupSeconds: 5
+  maxConcurrency: 2
+  maxQueue: 16
+  chunkIntervalMs: 50
+  prefillMsPerKchar: 100
+  cacheHitMs: 20
+  prefixCacheEntries: 128
+  defaultMaxChunks: 20
+probes:
+  mode: warm
+router:
+  enabled: true
+  balanceFactor: 125
